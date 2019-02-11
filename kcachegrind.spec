@@ -5,23 +5,22 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kcachegrind
-Version  : 18.08.0
-Release  : 1
-URL      : https://download.kde.org/stable/applications/18.08.0/src/kcachegrind-18.08.0.tar.xz
-Source0  : https://download.kde.org/stable/applications/18.08.0/src/kcachegrind-18.08.0.tar.xz
-Source99 : https://download.kde.org/stable/applications/18.08.0/src/kcachegrind-18.08.0.tar.xz.sig
+Version  : 18.12.2
+Release  : 2
+URL      : https://download.kde.org/stable/applications/18.12.2/src/kcachegrind-18.12.2.tar.xz
+Source0  : https://download.kde.org/stable/applications/18.12.2/src/kcachegrind-18.12.2.tar.xz
+Source99 : https://download.kde.org/stable/applications/18.12.2/src/kcachegrind-18.12.2.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
-Requires: kcachegrind-bin
-Requires: kcachegrind-data
-Requires: kcachegrind-license
-Requires: kcachegrind-locales
+Requires: kcachegrind-bin = %{version}-%{release}
+Requires: kcachegrind-data = %{version}-%{release}
+Requires: kcachegrind-license = %{version}-%{release}
+Requires: kcachegrind-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : buildreq-qmake
-BuildRequires : karchive-dev
-BuildRequires : qtbase-dev qtbase-extras mesa-dev
+BuildRequires : qtbase-dev mesa-dev
 
 %description
 KCachegrind / QCachegrind
@@ -34,8 +33,8 @@ there are converters for other measurement tools available.
 %package bin
 Summary: bin components for the kcachegrind package.
 Group: Binaries
-Requires: kcachegrind-data
-Requires: kcachegrind-license
+Requires: kcachegrind-data = %{version}-%{release}
+Requires: kcachegrind-license = %{version}-%{release}
 
 %description bin
 bin components for the kcachegrind package.
@@ -74,26 +73,26 @@ locales components for the kcachegrind package.
 
 
 %prep
-%setup -q -n kcachegrind-18.08.0
+%setup -q -n kcachegrind-18.12.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535170504
-mkdir clr-build
+export SOURCE_DATE_EPOCH=1549863456
+mkdir -p clr-build
 pushd clr-build
 %cmake ..
 make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535170504
+export SOURCE_DATE_EPOCH=1549863456
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/kcachegrind
-cp COPYING %{buildroot}/usr/share/doc/kcachegrind/COPYING
-cp COPYING.DOC %{buildroot}/usr/share/doc/kcachegrind/COPYING.DOC
+mkdir -p %{buildroot}/usr/share/package-licenses/kcachegrind
+cp COPYING %{buildroot}/usr/share/package-licenses/kcachegrind/COPYING
+cp COPYING.DOC %{buildroot}/usr/share/package-licenses/kcachegrind/COPYING.DOC
 pushd clr-build
 %make_install
 popd
@@ -126,7 +125,6 @@ popd
 /usr/share/kcachegrind/icons/hicolor/32x32/actions/percent.png
 /usr/share/kcachegrind/tips
 /usr/share/kxmlgui5/kcachegrind/kcachegrindui.rc
-/usr/share/locale/ast/LC_MESSAGES/kcachegrind_qt.qm
 /usr/share/locale/bs/LC_MESSAGES/kcachegrind_qt.qm
 /usr/share/locale/ca/LC_MESSAGES/kcachegrind_qt.qm
 /usr/share/locale/ca@valencia/LC_MESSAGES/kcachegrind_qt.qm
@@ -165,6 +163,7 @@ popd
 /usr/share/locale/uk/LC_MESSAGES/kcachegrind_qt.qm
 /usr/share/locale/zh_CN/LC_MESSAGES/kcachegrind_qt.qm
 /usr/share/locale/zh_TW/LC_MESSAGES/kcachegrind_qt.qm
+/usr/share/metainfo/org.kde.kcachegrind.appdata.xml
 
 %files doc
 %defattr(0644,root,root,0755)
@@ -196,9 +195,9 @@ popd
 /usr/share/doc/HTML/uk/kcachegrind/index.docbook
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/kcachegrind/COPYING
-/usr/share/doc/kcachegrind/COPYING.DOC
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/kcachegrind/COPYING
+/usr/share/package-licenses/kcachegrind/COPYING.DOC
 
 %files locales -f kcachegrind.lang
 %defattr(-,root,root,-)
