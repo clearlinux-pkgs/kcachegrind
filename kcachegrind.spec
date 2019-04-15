@@ -6,11 +6,11 @@
 #
 Name     : kcachegrind
 Version  : 18.12.3
-Release  : 4
+Release  : 5
 URL      : https://download.kde.org/stable/applications/18.12.3/src/kcachegrind-18.12.3.tar.xz
 Source0  : https://download.kde.org/stable/applications/18.12.3/src/kcachegrind-18.12.3.tar.xz
 Source99 : https://download.kde.org/stable/applications/18.12.3/src/kcachegrind-18.12.3.tar.xz.sig
-Summary  : No detailed summary available
+Summary  : Visualization of Performance Profiling Data
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
 Requires: kcachegrind-bin = %{version}-%{release}
@@ -80,16 +80,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1551993986
+export SOURCE_DATE_EPOCH=1555323772
 mkdir -p clr-build
 pushd clr-build
-export LDFLAGS="${LDFLAGS} -fno-lto"
 %cmake ..
-make  %{?_smp_mflags} VERBOSE=1
+make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1551993986
+export SOURCE_DATE_EPOCH=1555323772
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kcachegrind
 cp COPYING %{buildroot}/usr/share/package-licenses/kcachegrind/COPYING
