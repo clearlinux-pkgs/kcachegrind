@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kcachegrind
-Version  : 19.12.0
-Release  : 15
-URL      : https://download.kde.org/stable/release-service/19.12.0/src/kcachegrind-19.12.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/19.12.0/src/kcachegrind-19.12.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/19.12.0/src/kcachegrind-19.12.0.tar.xz.sig
+Version  : 19.12.1
+Release  : 16
+URL      : https://download.kde.org/stable/release-service/19.12.1/src/kcachegrind-19.12.1.tar.xz
+Source0  : https://download.kde.org/stable/release-service/19.12.1/src/kcachegrind-19.12.1.tar.xz
+Source1  : https://download.kde.org/stable/release-service/19.12.1/src/kcachegrind-19.12.1.tar.xz.sig
 Summary  : Visualization of Performance Profiling Data
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
@@ -73,15 +73,15 @@ locales components for the kcachegrind package.
 
 
 %prep
-%setup -q -n kcachegrind-19.12.0
-cd %{_builddir}/kcachegrind-19.12.0
+%setup -q -n kcachegrind-19.12.1
+cd %{_builddir}/kcachegrind-19.12.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1576529763
+export SOURCE_DATE_EPOCH=1578612151
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -98,11 +98,11 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1576529763
+export SOURCE_DATE_EPOCH=1578612151
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kcachegrind
-cp %{_builddir}/kcachegrind-19.12.0/COPYING %{buildroot}/usr/share/package-licenses/kcachegrind/133efad5329acf364135c569ac01ec084c3d4647
-cp %{_builddir}/kcachegrind-19.12.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/kcachegrind/fcbf818f92ef8679a88f3778b12b4c8b5810545b
+cp %{_builddir}/kcachegrind-19.12.1/COPYING %{buildroot}/usr/share/package-licenses/kcachegrind/133efad5329acf364135c569ac01ec084c3d4647
+cp %{_builddir}/kcachegrind-19.12.1/COPYING.DOC %{buildroot}/usr/share/package-licenses/kcachegrind/fcbf818f92ef8679a88f3778b12b4c8b5810545b
 pushd clr-build
 %make_install
 popd
