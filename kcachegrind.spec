@@ -5,12 +5,12 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kcachegrind
-Version  : 20.04.0
-Release  : 19
-URL      : https://download.kde.org/stable/release-service/20.04.0/src/kcachegrind-20.04.0.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.04.0/src/kcachegrind-20.04.0.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.04.0/src/kcachegrind-20.04.0.tar.xz.sig
-Summary  : Visualization of Performance Profiling Data
+Version  : 20.04.1
+Release  : 20
+URL      : https://download.kde.org/stable/release-service/20.04.1/src/kcachegrind-20.04.1.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.04.1/src/kcachegrind-20.04.1.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.04.1/src/kcachegrind-20.04.1.tar.xz.sig
+Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
 Requires: kcachegrind-bin = %{version}-%{release}
@@ -20,6 +20,7 @@ Requires: kcachegrind-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : buildreq-qmake
+BuildRequires : extra-cmake-modules-data
 BuildRequires : qtbase-dev mesa-dev
 
 %description
@@ -73,36 +74,35 @@ locales components for the kcachegrind package.
 
 
 %prep
-%setup -q -n kcachegrind-20.04.0
-cd %{_builddir}/kcachegrind-20.04.0
+%setup -q -n kcachegrind-20.04.1
+cd %{_builddir}/kcachegrind-20.04.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1587677859
+export SOURCE_DATE_EPOCH=1589850283
 mkdir -p clr-build
 pushd clr-build
-# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
 export CFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FCFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
-export FFLAGS="$CFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
+export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
 make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1587677859
+export SOURCE_DATE_EPOCH=1589850283
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kcachegrind
-cp %{_builddir}/kcachegrind-20.04.0/COPYING %{buildroot}/usr/share/package-licenses/kcachegrind/133efad5329acf364135c569ac01ec084c3d4647
-cp %{_builddir}/kcachegrind-20.04.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/kcachegrind/fcbf818f92ef8679a88f3778b12b4c8b5810545b
+cp %{_builddir}/kcachegrind-20.04.1/COPYING %{buildroot}/usr/share/package-licenses/kcachegrind/133efad5329acf364135c569ac01ec084c3d4647
+cp %{_builddir}/kcachegrind-20.04.1/COPYING.DOC %{buildroot}/usr/share/package-licenses/kcachegrind/fcbf818f92ef8679a88f3778b12b4c8b5810545b
 pushd clr-build
 %make_install
 popd
