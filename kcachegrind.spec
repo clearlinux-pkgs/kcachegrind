@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xDBD2CE893E2D1C87 (cfeck@kde.org)
 #
 Name     : kcachegrind
-Version  : 20.04.2
-Release  : 22
-URL      : https://download.kde.org/stable/release-service/20.04.2/src/kcachegrind-20.04.2.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.04.2/src/kcachegrind-20.04.2.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.04.2/src/kcachegrind-20.04.2.tar.xz.sig
+Version  : 20.08.0
+Release  : 23
+URL      : https://download.kde.org/stable/release-service/20.08.0/src/kcachegrind-20.08.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/20.08.0/src/kcachegrind-20.08.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/20.08.0/src/kcachegrind-20.08.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
@@ -74,15 +74,15 @@ locales components for the kcachegrind package.
 
 
 %prep
-%setup -q -n kcachegrind-20.04.2
-cd %{_builddir}/kcachegrind-20.04.2
+%setup -q -n kcachegrind-20.08.0
+cd %{_builddir}/kcachegrind-20.08.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1591907614
+export SOURCE_DATE_EPOCH=1597777683
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -94,15 +94,15 @@ export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
-make  %{?_smp_mflags}  VERBOSE=1
+make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1591907614
+export SOURCE_DATE_EPOCH=1597777683
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kcachegrind
-cp %{_builddir}/kcachegrind-20.04.2/COPYING %{buildroot}/usr/share/package-licenses/kcachegrind/133efad5329acf364135c569ac01ec084c3d4647
-cp %{_builddir}/kcachegrind-20.04.2/COPYING.DOC %{buildroot}/usr/share/package-licenses/kcachegrind/fcbf818f92ef8679a88f3778b12b4c8b5810545b
+cp %{_builddir}/kcachegrind-20.08.0/COPYING %{buildroot}/usr/share/package-licenses/kcachegrind/133efad5329acf364135c569ac01ec084c3d4647
+cp %{_builddir}/kcachegrind-20.08.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/kcachegrind/fcbf818f92ef8679a88f3778b12b4c8b5810545b
 pushd clr-build
 %make_install
 popd
