@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : kcachegrind
-Version  : 20.12.3
-Release  : 28
-URL      : https://download.kde.org/stable/release-service/20.12.3/src/kcachegrind-20.12.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/20.12.3/src/kcachegrind-20.12.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/20.12.3/src/kcachegrind-20.12.3.tar.xz.sig
+Version  : 21.04.0
+Release  : 29
+URL      : https://download.kde.org/stable/release-service/21.04.0/src/kcachegrind-21.04.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/21.04.0/src/kcachegrind-21.04.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/21.04.0/src/kcachegrind-21.04.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
@@ -74,15 +74,15 @@ locales components for the kcachegrind package.
 
 
 %prep
-%setup -q -n kcachegrind-20.12.3
-cd %{_builddir}/kcachegrind-20.12.3
+%setup -q -n kcachegrind-21.04.0
+cd %{_builddir}/kcachegrind-21.04.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1618662213
+export SOURCE_DATE_EPOCH=1619207621
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -98,11 +98,11 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1618662213
+export SOURCE_DATE_EPOCH=1619207621
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kcachegrind
-cp %{_builddir}/kcachegrind-20.12.3/COPYING %{buildroot}/usr/share/package-licenses/kcachegrind/133efad5329acf364135c569ac01ec084c3d4647
-cp %{_builddir}/kcachegrind-20.12.3/COPYING.DOC %{buildroot}/usr/share/package-licenses/kcachegrind/fcbf818f92ef8679a88f3778b12b4c8b5810545b
+cp %{_builddir}/kcachegrind-21.04.0/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/kcachegrind/7697008f58568e61e7598e796eafc2a997503fde
+cp %{_builddir}/kcachegrind-21.04.0/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kcachegrind/3e8971c6c5f16674958913a94a36b1ea7a00ac46
 pushd clr-build
 %make_install
 popd
@@ -134,44 +134,6 @@ popd
 /usr/share/kcachegrind/icons/hicolor/22x22/actions/percent.png
 /usr/share/kcachegrind/icons/hicolor/32x32/actions/percent.png
 /usr/share/kcachegrind/tips
-/usr/share/locale/bs/LC_MESSAGES/kcachegrind_qt.qm
-/usr/share/locale/ca/LC_MESSAGES/kcachegrind_qt.qm
-/usr/share/locale/ca@valencia/LC_MESSAGES/kcachegrind_qt.qm
-/usr/share/locale/cs/LC_MESSAGES/kcachegrind_qt.qm
-/usr/share/locale/da/LC_MESSAGES/kcachegrind_qt.qm
-/usr/share/locale/de/LC_MESSAGES/kcachegrind_qt.qm
-/usr/share/locale/el/LC_MESSAGES/kcachegrind_qt.qm
-/usr/share/locale/en_GB/LC_MESSAGES/kcachegrind_qt.qm
-/usr/share/locale/eo/LC_MESSAGES/kcachegrind_qt.qm
-/usr/share/locale/es/LC_MESSAGES/kcachegrind_qt.qm
-/usr/share/locale/et/LC_MESSAGES/kcachegrind_qt.qm
-/usr/share/locale/fi/LC_MESSAGES/kcachegrind_qt.qm
-/usr/share/locale/fr/LC_MESSAGES/kcachegrind_qt.qm
-/usr/share/locale/ga/LC_MESSAGES/kcachegrind_qt.qm
-/usr/share/locale/gl/LC_MESSAGES/kcachegrind_qt.qm
-/usr/share/locale/hr/LC_MESSAGES/kcachegrind_qt.qm
-/usr/share/locale/hu/LC_MESSAGES/kcachegrind_qt.qm
-/usr/share/locale/it/LC_MESSAGES/kcachegrind_qt.qm
-/usr/share/locale/ja/LC_MESSAGES/kcachegrind_qt.qm
-/usr/share/locale/kk/LC_MESSAGES/kcachegrind_qt.qm
-/usr/share/locale/ko/LC_MESSAGES/kcachegrind_qt.qm
-/usr/share/locale/lt/LC_MESSAGES/kcachegrind_qt.qm
-/usr/share/locale/mr/LC_MESSAGES/kcachegrind_qt.qm
-/usr/share/locale/nb/LC_MESSAGES/kcachegrind_qt.qm
-/usr/share/locale/nds/LC_MESSAGES/kcachegrind_qt.qm
-/usr/share/locale/nl/LC_MESSAGES/kcachegrind_qt.qm
-/usr/share/locale/nn/LC_MESSAGES/kcachegrind_qt.qm
-/usr/share/locale/pl/LC_MESSAGES/kcachegrind_qt.qm
-/usr/share/locale/pt/LC_MESSAGES/kcachegrind_qt.qm
-/usr/share/locale/pt_BR/LC_MESSAGES/kcachegrind_qt.qm
-/usr/share/locale/ru/LC_MESSAGES/kcachegrind_qt.qm
-/usr/share/locale/sk/LC_MESSAGES/kcachegrind_qt.qm
-/usr/share/locale/sv/LC_MESSAGES/kcachegrind_qt.qm
-/usr/share/locale/tr/LC_MESSAGES/kcachegrind_qt.qm
-/usr/share/locale/ug/LC_MESSAGES/kcachegrind_qt.qm
-/usr/share/locale/uk/LC_MESSAGES/kcachegrind_qt.qm
-/usr/share/locale/zh_CN/LC_MESSAGES/kcachegrind_qt.qm
-/usr/share/locale/zh_TW/LC_MESSAGES/kcachegrind_qt.qm
 /usr/share/metainfo/org.kde.kcachegrind.appdata.xml
 
 %files doc
@@ -205,8 +167,8 @@ popd
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/kcachegrind/133efad5329acf364135c569ac01ec084c3d4647
-/usr/share/package-licenses/kcachegrind/fcbf818f92ef8679a88f3778b12b4c8b5810545b
+/usr/share/package-licenses/kcachegrind/3e8971c6c5f16674958913a94a36b1ea7a00ac46
+/usr/share/package-licenses/kcachegrind/7697008f58568e61e7598e796eafc2a997503fde
 
 %files locales -f kcachegrind.lang
 %defattr(-,root,root,-)
