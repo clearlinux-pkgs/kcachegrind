@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : kcachegrind
-Version  : 22.04.1
-Release  : 40
-URL      : https://download.kde.org/stable/release-service/22.04.1/src/kcachegrind-22.04.1.tar.xz
-Source0  : https://download.kde.org/stable/release-service/22.04.1/src/kcachegrind-22.04.1.tar.xz
-Source1  : https://download.kde.org/stable/release-service/22.04.1/src/kcachegrind-22.04.1.tar.xz.sig
+Version  : 22.04.2
+Release  : 41
+URL      : https://download.kde.org/stable/release-service/22.04.2/src/kcachegrind-22.04.2.tar.xz
+Source0  : https://download.kde.org/stable/release-service/22.04.2/src/kcachegrind-22.04.2.tar.xz
+Source1  : https://download.kde.org/stable/release-service/22.04.2/src/kcachegrind-22.04.2.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0 LGPL-2.1 LGPL-3.0
@@ -74,15 +74,15 @@ locales components for the kcachegrind package.
 
 
 %prep
-%setup -q -n kcachegrind-22.04.1
-cd %{_builddir}/kcachegrind-22.04.1
+%setup -q -n kcachegrind-22.04.2
+cd %{_builddir}/kcachegrind-22.04.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1652651643
+export SOURCE_DATE_EPOCH=1654838652
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -98,13 +98,13 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1652651643
+export SOURCE_DATE_EPOCH=1654838652
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kcachegrind
-cp %{_builddir}/kcachegrind-22.04.1/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/kcachegrind/7697008f58568e61e7598e796eafc2a997503fde
-cp %{_builddir}/kcachegrind-22.04.1/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kcachegrind/3e8971c6c5f16674958913a94a36b1ea7a00ac46
-cp %{_builddir}/kcachegrind-22.04.1/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/kcachegrind/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567
-cp %{_builddir}/kcachegrind-22.04.1/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kcachegrind/19d98e1b6f8ef12849ea4012a052d3907f336c91
+cp %{_builddir}/kcachegrind-22.04.2/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/kcachegrind/7697008f58568e61e7598e796eafc2a997503fde
+cp %{_builddir}/kcachegrind-22.04.2/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kcachegrind/3e8971c6c5f16674958913a94a36b1ea7a00ac46
+cp %{_builddir}/kcachegrind-22.04.2/LICENSES/LGPL-2.1-only.txt %{buildroot}/usr/share/package-licenses/kcachegrind/81b58c89ceef8e9f8bd5d00a287edbd15f9d3567
+cp %{_builddir}/kcachegrind-22.04.2/LICENSES/LGPL-3.0-only.txt %{buildroot}/usr/share/package-licenses/kcachegrind/19d98e1b6f8ef12849ea4012a052d3907f336c91
 pushd clr-build
 %make_install
 popd
@@ -140,6 +140,8 @@ popd
 
 %files doc
 %defattr(0644,root,root,0755)
+/usr/share/doc/HTML/ca/kcachegrind/index.cache.bz2
+/usr/share/doc/HTML/ca/kcachegrind/index.docbook
 /usr/share/doc/HTML/de/kcachegrind/index.cache.bz2
 /usr/share/doc/HTML/de/kcachegrind/index.docbook
 /usr/share/doc/HTML/en/kcachegrind/index.cache.bz2
