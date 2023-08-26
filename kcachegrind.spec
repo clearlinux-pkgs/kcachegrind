@@ -6,11 +6,11 @@
 # Source0 file verified with key 0xBB463350D6EF31EF (heiko@shruuf.de)
 #
 Name     : kcachegrind
-Version  : 23.04.3
-Release  : 56
-URL      : https://download.kde.org/stable/release-service/23.04.3/src/kcachegrind-23.04.3.tar.xz
-Source0  : https://download.kde.org/stable/release-service/23.04.3/src/kcachegrind-23.04.3.tar.xz
-Source1  : https://download.kde.org/stable/release-service/23.04.3/src/kcachegrind-23.04.3.tar.xz.sig
+Version  : 23.08.0
+Release  : 57
+URL      : https://download.kde.org/stable/release-service/23.08.0/src/kcachegrind-23.08.0.tar.xz
+Source0  : https://download.kde.org/stable/release-service/23.08.0/src/kcachegrind-23.08.0.tar.xz
+Source1  : https://download.kde.org/stable/release-service/23.08.0/src/kcachegrind-23.08.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0 LGPL-2.1 LGPL-3.0
@@ -21,7 +21,6 @@ Requires: kcachegrind-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : extra-cmake-modules-data
-BuildRequires : qtbase-dev mesa-dev
 # Suppress stripping binaries
 %define __strip /bin/true
 %define debug_package %{nil}
@@ -77,15 +76,15 @@ locales components for the kcachegrind package.
 
 
 %prep
-%setup -q -n kcachegrind-23.04.3
-cd %{_builddir}/kcachegrind-23.04.3
+%setup -q -n kcachegrind-23.08.0
+cd %{_builddir}/kcachegrind-23.08.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1688860668
+export SOURCE_DATE_EPOCH=1693023720
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -118,7 +117,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1688860668
+export SOURCE_DATE_EPOCH=1693023720
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kcachegrind
 cp %{_builddir}/kcachegrind-%{version}/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/kcachegrind/7697008f58568e61e7598e796eafc2a997503fde || :
